@@ -1,12 +1,13 @@
 package org.scrum.domain.project;
 
+import java.util.Objects;
+
 public class Task {
 	
-	public Integer task_id; //PK
-	public String short_id;
-	public String task_name;
-	public String chargeCode; //FK
-	private Integer work_pack_id; //FK 
+	private Integer task_id; //PK
+	private String short_id;
+	private String task_name;
+	private String chargeCode; //FK
 	
 //getters and setters
 	public Integer getTask_id() {
@@ -33,17 +34,7 @@ public class Task {
 	public void setChargeCode(String chargeCode) {
 		this.chargeCode = chargeCode;
 	}
-	public Integer getWork_pack_id() {
-		return work_pack_id;
-	}
-	public void setWork_pack_id(Integer work_pack_id) {
-		this.work_pack_id = work_pack_id;
-	}
-	
-//superclass
-	public Task() {
-		super();
-	}
+
 	
 //using fields
 public Task(Integer task_id, String short_id, String task_name, String chargeCode, Integer work_pack_id) {
@@ -52,7 +43,28 @@ public Task(Integer task_id, String short_id, String task_name, String chargeCod
 	this.short_id = short_id;
 	this.task_name = task_name;
 	this.chargeCode = chargeCode;
-	this.work_pack_id = work_pack_id;
+	}
+
+
+@Override
+public int hashCode() {
+	return Objects.hash(task_id);
+}
+@Override
+public boolean equals(Object obj) {
+	if (this == obj)
+		return true;
+	if (obj == null)
+		return false;
+	if (getClass() != obj.getClass())
+		return false;
+	Task other = (Task) obj;
+	return Objects.equals(task_id, other.task_id);
+	}
+@Override
+public String toString() {
+	return "Task [task_id=" + task_id + ", short_id=" + short_id + ", task_name=" + task_name + ", chargeCode="
+			+ chargeCode + "]";
 	}
 }
 
