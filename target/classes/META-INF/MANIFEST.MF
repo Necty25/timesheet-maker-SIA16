@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Build-Jdk-Spec: 17
+Implementation-Title: msd.t2_c3.springboot_di
+Implementation-Version: 2023.0-SNAPSHOT
+Created-By: Maven Integration for Eclipse
+
